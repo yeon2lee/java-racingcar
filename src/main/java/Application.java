@@ -11,6 +11,8 @@ public class Application {
         int count = inputCount();
 
         carRacing(racings, count);
+
+        printResult(racings);
     }
 
     private static List<Racing> inputRacing() {
@@ -43,6 +45,21 @@ public class Application {
                 racing.printResult();
             }
         }
+    }
+
+    private static void printResult(List<Racing> racings) {
+        String result = "\n최종 우승자 : ";
+        Collections.sort(racings);
+
+        result += racings.get(0).getName();
+        int max = racings.get(0).getDistance();
+        for (int i = 1; i < racings.size(); i++) {
+            Racing r = racings.get(i);
+            if (r.getDistance() >= max) {
+                result += ", " + r.getName();
+            }
+        }
+        System.out.println(result);
     }
 
 }
