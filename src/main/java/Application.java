@@ -9,6 +9,8 @@ public class Application {
 
         List<Racing> racings = inputRacing();
         int count = inputCount();
+
+        carRacing(racings, count);
     }
 
     private static List<Racing> inputRacing() {
@@ -27,6 +29,20 @@ public class Application {
         Scanner scan = new Scanner(System.in);
         System.out.println("시도할 회수는 몇회인가요?");
         return scan.nextInt();
+    }
+
+    private static void carRacing(List<Racing> racings, int count) {
+        for (int i = 0; i < count; i++) {
+            if (i == 0) {
+                System.out.println("\n실행 결과");
+            } else {
+                System.out.println();
+            }
+            for (Racing racing : racings) {
+                racing.moveCar();
+                racing.printResult();
+            }
+        }
     }
 
 }
