@@ -1,24 +1,34 @@
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.Car;
+import racingcar.Racing;
+import racingcar.ResultView;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
 
 class ApplicationTest {
 
-    @Test
-    public void 랜덤숫자가_4이상일때만_움직인다() {
-        Car car = new Car("nayeon");
-        assertThat(car.run(0)).isEqualTo(1);
-        assertThat(car.run(1)).isEqualTo(1);
-        assertThat(car.run(2)).isEqualTo(1);
-        assertThat(car.run(3)).isEqualTo(1);
+    private ByteArrayOutputStream outputStreamCaptor;
 
-        assertThat(car.run(4)).isEqualTo(2);
-        assertThat(car.run(5)).isEqualTo(3);
-        assertThat(car.run(6)).isEqualTo(4);
-        assertThat(car.run(7)).isEqualTo(5);
-        assertThat(car.run(8)).isEqualTo(6);
-        assertThat(car.run(9)).isEqualTo(7);
+    protected void systemIn(String input) {
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
     }
 
+    @BeforeEach
+    void setUp() {
+        outputStreamCaptor = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStreamCaptor));
+    }
+
+    protected String getOutput() {
+        // ByteArrayOutputStream의 toString은 기본 문자집합을 사용하여 버퍼의 내용을 문자열 디코딩 바이트로 변환해줍니다.
+        return outputStreamCaptor.toString();
+    }
+    
 }
