@@ -3,10 +3,10 @@ package racingcar;
 import java.util.Random;
 
 public class Car implements Comparable<Car> {
-    private String name;
+    private final String name;
     private int position = 1;
 
-    public Car(String name) {
+    public Car(final String name) {
         this.name = name;
     }
 
@@ -18,7 +18,7 @@ public class Car implements Comparable<Car> {
         return position;
     }
 
-    public int run(int number) {
+    public int run(final int number) {
         if (number >= 4) {
             this.position++;
         }
@@ -26,7 +26,7 @@ public class Car implements Comparable<Car> {
     }
 
     @Override
-    public int compareTo(Car c) {
+    public int compareTo(final Car c) {
         return c.getPosition() - position;
     }
 }

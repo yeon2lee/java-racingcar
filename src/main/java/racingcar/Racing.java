@@ -3,19 +3,19 @@ package racingcar;
 import java.util.*;
 
 public class Racing {
-    private List<Car> cars;
-    private int tryCount;
+    private final List<Car> cars;
+    private final int tryCount;
 
-    public Racing(List<Car> cars, int tryCount) {
+    public Racing(final List<Car> cars, final int tryCount) {
         this.cars = cars;
         this.tryCount = tryCount;
     }
 
     public List<Car> getWinners() {
         Collections.sort(cars);
-        int max = cars.get(0).getPosition();
+        final int max = cars.get(0).getPosition();
 
-        List<Car> winners = new ArrayList<>();
+        final List<Car> winners = new ArrayList<>();
         for (Car car : cars) {
             if (car.getPosition() == max) {
                 winners.add(car);
@@ -25,7 +25,7 @@ public class Racing {
     }
 
     public int getRandomNo() {
-        Random random = new Random();
+        final Random random = new Random();
         return random.nextInt(10);
     }
 
