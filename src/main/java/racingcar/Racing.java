@@ -24,7 +24,7 @@ public class Racing {
         return winners;
     }
 
-    public int getRandomNo() {
+    private int getRandomNo() {
         final Random random = new Random();
         return random.nextInt(10);
     }
