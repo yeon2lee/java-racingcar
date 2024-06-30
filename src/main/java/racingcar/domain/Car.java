@@ -1,6 +1,4 @@
-package racingcar;
-
-import java.util.Random;
+package racingcar.domain;
 
 public class Car implements Comparable<Car> {
     private final String name;

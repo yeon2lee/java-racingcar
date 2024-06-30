@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.Car;
-import racingcar.Racing;
-import racingcar.ResultView;
+import racingcar.domain.Car;
+import racingcar.domain.Racing;
+import racingcar.view.ResultView;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
